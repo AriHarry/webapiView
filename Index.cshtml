@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <a href="@Url.Action("Create","Customer")">Add Customer</a>
+     <table cellpadding="2" cellspacing="2" border="1">
+         <tr>
+             <th>Name</th>
+             <th>Address1</th>
+             <th>Address2</th>
+             <th>Address3</th>
+             <th>Location</th>
+             <th>PhoneNumber</th>
+             <th>Action</th>
+         </tr>
+          @foreach (var customer in ViewBag.listCustomer)
+          {
+              <tr>
+                  <td>@customer.Name</td>
+                  <td>@customer.Address1</td>
+                  <td>@customer.Address2</td>
+                  <td>@customer.Address3</td>
+                  <td>@customer.Location</td>
+                  <td>@customer.PhoneNumber</td>
+                  <td>
+                      <a onclick="return conform('Are you sure?')"  href="@Url.Action("Delete", "Customer", new { id = customer.Id })">Delete</a>|
+                      <a href="@Url.Action("Edit", "Customer", new { id = customer.Id })">Edit</a>
+                  </td>
+              </tr>
+          }
+     </table>
+</body>
+</html>

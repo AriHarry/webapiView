@@ -1,0 +1,84 @@
+﻿@model WebApiClient.Models.ClsCustomer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm("Create","Customer",FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <table cellpadding="2" cellspacing="2">
+            <legend>Customer</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.customer.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customer.Name)
+                @Html.ValidationMessageFor(model => model.customer.Name)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.customer.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customer.Address1)
+                @Html.ValidationMessageFor(model => model.customer.Address1)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.customer.Address2)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customer.Address2)
+                @Html.ValidationMessageFor(model => model.customer.Address2)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.customer.Address3)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customer.Address3)
+                @Html.ValidationMessageFor(model => model.customer.Address3)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.customer.Location)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customer.Location)
+                @Html.ValidationMessageFor(model => model.customer.Location)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.customer.PhoneNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customer.PhoneNumber)
+                @Html.ValidationMessageFor(model => model.customer.PhoneNumber)
+            </div>
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </table>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
